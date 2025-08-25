@@ -1,29 +1,29 @@
-package com.eazybytes.loans.mapper;
+package com.eazybytes.cards.mapper;
 
-import com.eazybytes.loans.dto.LoanDto;
-import com.eazybytes.loans.entity.Loan;
+import com.eazybytes.cards.dto.CardDto;
+import com.eazybytes.cards.entity.Card;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
-public interface LoansMapper {
-    LoansMapper INSTANCE = Mappers.getMapper( LoansMapper.class );
+public interface CardMapper {
+    CardMapper INSTANCE = Mappers.getMapper( CardMapper.class );
 
-    LoanDto loansToLoansDto(Loan loan);
+    CardDto cardToCardDto(Card card);
 
-    @Mapping(target = "loanId", ignore = true)
+    @Mapping(target = "cardId", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "createdBy", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "updatedBy", ignore = true)
-    Loan loansDtoToLoans(LoanDto loanDto);
+    Card cardDtoToCard(CardDto cardDto);
 
-    @Mapping(target = "loanId", ignore = true)
+    @Mapping(target = "cardId", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "createdBy", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "updatedBy", ignore = true)
-    void updateLoansDtoToLoans(LoanDto loanDto, @MappingTarget Loan loan);
+    void updateCardDtoToCard(CardDto cardDto, @MappingTarget Card card);
 }
